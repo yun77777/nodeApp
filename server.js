@@ -40,7 +40,18 @@ var app = http.createServer(function (req, res) {
             }
         });
     }
-    
+    if(pathname == '/image') {
+        fs.readFile(__dirname + '/views/image.html', function (err, result) {
+            if(err) {
+                console.log('file read fail.. : ' + err.message);
+                res.writeHead(404, {'Content-Type' : 'text/html'});
+                res.end('404 : NOT FOUND');
+            }else {
+                res.writeHead(200, {'Content-Type' : 'text/html'});
+                res.end(result);
+            }
+        });
+    }
     else if(pathname == '/next') {
         fs.readFile(__dirname + '/views/next.html', function (err, result) {
             if(err) {
@@ -49,6 +60,7 @@ var app = http.createServer(function (req, res) {
                 res.end('404 : NOT FOUND');
             }else {
                 res.writeHead(200, {'Content-Type' : 'text/html'});
+                console.log("RESULT:"+result);
                 res.end(result);
             }
         });

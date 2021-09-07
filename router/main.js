@@ -11,7 +11,11 @@ module.exports = function(app)
     app.get('/test',function(req,res){
         res.render('test.html');
     });
-
+    
+    app.get('/image',function(req,res){
+        res.render('image.html');
+    });
+    
     app.post('/next',function(req,res){
         res.render('next.html');
     });
