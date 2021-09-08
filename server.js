@@ -65,6 +65,19 @@ var app = http.createServer(function (req, res) {
             }
         });
     }
+    else if(pathname == '/splash') {
+        fs.readFile(__dirname + '/views/splash.html', function (err, result) {
+            if(err) {
+                console.log('file read fail.. : ' + err.message);
+                res.writeHead(404, {'Content-Type' : 'text/html'});
+                res.end('404 : NOT FOUND');
+            }else {
+                res.writeHead(200, {'Content-Type' : 'text/html'});
+                console.log("RESULT:"+result);
+                res.end(result);
+            }
+        });
+    }
     
     else if(pathname == '/writeAf') {
         var body = '';

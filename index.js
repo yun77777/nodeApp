@@ -30,6 +30,10 @@ app.get('/login', (req, res) => {
   res.send('this is login!!!!!!!!')
 })
 
+app.get('/splash', (req, res) => {
+  res.send('this is login!!!!!!!!')
+})
+
 // 3000번 포트에 웹서버 구동
 app.listen(3000, () => {
     console.log('connected 3000 port ~~~~~')
